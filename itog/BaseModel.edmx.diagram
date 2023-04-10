@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="183dbbe8538946dc9a8b781c4886d616" Name="Diagram1">
+        <EntityTypeShape EntityType="PPModel.Cabinet" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PPModel.City" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PPModel.Classification" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="PPModel.Education" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="PPModel.Kid" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PPModel.Record" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PPModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="PPModel.FK_Record_Cabinet" ManuallyRouted="false" />
+        <AssociationConnector Association="PPModel.FK_Kid_City" ManuallyRouted="false" />
+        <AssociationConnector Association="PPModel.FK_User_Classification" ManuallyRouted="false" />
+        <AssociationConnector Association="PPModel.FK_User_Education" ManuallyRouted="false" />
+        <AssociationConnector Association="PPModel.FK_Record_Kid" ManuallyRouted="false" />
+        <AssociationConnector Association="PPModel.FK_Record_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

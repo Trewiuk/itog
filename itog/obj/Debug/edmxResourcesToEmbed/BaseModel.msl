@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище PPModelContainer" CdmEntityContainer="PPEntities">
+    <EntitySetMapping Name="Cabinet">
+      <EntityTypeMapping TypeName="PPModel.Cabinet">
+        <MappingFragment StoreEntitySet="Cabinet">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Cabinet_Name" ColumnName="Cabinet_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="PPModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classification">
+      <EntityTypeMapping TypeName="PPModel.Classification">
+        <MappingFragment StoreEntitySet="Classification">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Classification_Name" ColumnName="Classification_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Education">
+      <EntityTypeMapping TypeName="PPModel.Education">
+        <MappingFragment StoreEntitySet="Education">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Education_Name" ColumnName="Education_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kid">
+      <EntityTypeMapping TypeName="PPModel.Kid">
+        <MappingFragment StoreEntitySet="Kid">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="City" ColumnName="City" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Record">
+      <EntityTypeMapping TypeName="PPModel.Record">
+        <MappingFragment StoreEntitySet="Record">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time_Start" ColumnName="Time_Start" />
+          <ScalarProperty Name="Cabinets" ColumnName="Cabinets" />
+          <ScalarProperty Name="Users" ColumnName="Users" />
+          <ScalarProperty Name="Kids" ColumnName="Kids" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="PPModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="Education" ColumnName="Education" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Classification" ColumnName="Classification" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

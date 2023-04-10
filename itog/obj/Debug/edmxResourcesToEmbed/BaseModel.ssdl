@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище PPModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cabinet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cabinet_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="City_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Classification">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Classification_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Education">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Education_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kid">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Middlename" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birthday" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Record">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Time_Start" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cabinets" Type="int" Nullable="false" />
+    <Property Name="Users" Type="int" Nullable="false" />
+    <Property Name="Kids" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Middlename" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birthday" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Experience" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Education" Type="int" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Classification" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Kid_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="Kid" Type="Self.Kid" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Kid">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Record_Cabinet">
+    <End Role="Cabinet" Type="Self.Cabinet" Multiplicity="1" />
+    <End Role="Record" Type="Self.Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cabinet">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Record">
+        <PropertyRef Name="Cabinets" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Record_Kid">
+    <End Role="Kid" Type="Self.Kid" Multiplicity="1" />
+    <End Role="Record" Type="Self.Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kid">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Record">
+        <PropertyRef Name="Kids" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Record_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Record" Type="Self.Record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Record">
+        <PropertyRef Name="Users" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Classification">
+    <End Role="Classification" Type="Self.Classification" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classification">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Classification" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Education">
+    <End Role="Education" Type="Self.Education" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Education">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Education" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище PPModelContainer">
+    <EntitySet Name="Cabinet" EntityType="Self.Cabinet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Classification" EntityType="Self.Classification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kid" EntityType="Self.Kid" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Record" EntityType="Self.Record" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Kid_City" Association="Self.FK_Kid_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="Kid" EntitySet="Kid" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Record_Cabinet" Association="Self.FK_Record_Cabinet">
+      <End Role="Cabinet" EntitySet="Cabinet" />
+      <End Role="Record" EntitySet="Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Record_Kid" Association="Self.FK_Record_Kid">
+      <End Role="Kid" EntitySet="Kid" />
+      <End Role="Record" EntitySet="Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Record_User" Association="Self.FK_Record_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Record" EntitySet="Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Classification" Association="Self.FK_User_Classification">
+      <End Role="Classification" EntitySet="Classification" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Education" Association="Self.FK_User_Education">
+      <End Role="Education" EntitySet="Education" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
